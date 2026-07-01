@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      
+ <title>video room</title><link rel="icon" href="icons/flower.png">
+
+<style>
+          body {
+            font-family: "Crimson Pro", serif;
+            margin-top: 50px;
+            min-height: 100vh;
+            
+  background-image: url("images/video%20thumbnails/wallw.png");
+  background-repeat: repeat;
+  background-size: 300px;
+          }
+
+
+
+        .da-container {
+        width: min(70vw, 100%);
+          height: auto;
+          margin: 0 auto;
+          text-align: justify;
+          background: none;
+          overflow: visible;
+          font-size: 20px;
+          color: #a1a3b2;
+          line-height:  1.5;
+        }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+.big-container {
+  zoom: .8;
+  width: 1500px;
+  height: 640px;
+  margin: 0 auto;
+  position: relative;
+  background-image: url("images/video%20thumbnails/BOARD.png"); 
+  background-size: cover;               
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+    margin: 30px;
+    gap:10px;
+
+}
+
+.thumbnails img {
+  width: 380px;
+  height: 61.75px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease; 
+}
+
+.thumbnails img:hover {
+  transform: scale(1.05); 
+}
+
+
+
+.absolute-img {
+  position: absolute;
+  top: -40px;
+  right: 260px;
+  width: 780px;
+  z-index: 0;
+}
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+.video-container {
+  position: absolute;
+  top: 55px;         
+  left: 500px;        
+  width: 700px;        
+  height: 400px;       
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+    opacity: 0.7;    
+
+}
+
+
+iframe {
+  width: 64%;
+  height: 64%;
+  min-height: 700px;
+  border: none;
+  display: block;
+}
+
+.bottom-banner {
+  position: fixed;     
+  bottom: 0px;          
+  left: 0;            
+  width: 100%;         
+  height: auto;       
+  z-index: 9999;       
+  pointer-events: none; 
+}
+
+
+  .exit-button {
+  position: fixed;
+  top: 0;
+  left:0 ;
+  width: 6vw;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.exit-button:hover {
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+    <a href="index.html">
+    <img src="images/video%20thumbnails/exit.png" class="exit-button" alt="Exit Button">
+  </a>
+
+  <div class="big-container">
+
+
+ <img src="images/video%20thumbnails/project.png" class="absolute-img">
+    <div class="thumbnails">
+      <img src="images/video%20thumbnails/3.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/dumb.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/1.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/success.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/4.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/sane.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/2.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/failure.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/6.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/motivation.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/5.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/thoughts.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/7.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/braincell.mp4', 95, 95)">
+      <img src="images/video%20thumbnails/8.png" onclick="playVideo('https://file.garden/akNM7kSNTzMLwsxj/dance.mp4', 95, 95)">
+    </div>
+
+
+    <div class="video-container">
+      <video
+        id="videoFrame"
+        controls
+        autoplay
+        style="width: 95%; height: 95%;">
+        <source src="https://file.garden/akNM7kSNTzMLwsxj/success.mp4" type="video/mp4">
+      
+      </video>
+    </div>
+  </div>
+
+  <img src="images//video%20thumbnails/chairs.png" alt="Bottom Banner" class="bottom-banner">
+
+  <script>
+    function playVideo(videoUrl, width, height) {
+      const video = document.getElementById("videoFrame");
+
+      video.src = videoUrl;
+      video.load();
+      video.play();
+
+      video.style.width = width + "%";
+      video.style.height = height + "%";
+    }
+
+
+    const video = document.getElementById("videoFrame");
+
+    video.addEventListener("ended", function () {
+      video.currentTime = 0;
+      video.pause();
+    });
+  </script>
+</body>
+
+
+
+</body>
+</html>

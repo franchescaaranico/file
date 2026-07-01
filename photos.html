@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>photos</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+      .da-container {
+        width: min(90vw, 100%);
+        height: 500px;
+        padding: 20px;
+        margin: 0 auto;
+        background: none;
+        overflow: visible;
+        font-size: 20px;
+        color: #a1a3b2;
+        display: flex;        
+        flex-direction: row;   
+        gap: 15px;            
+        position: relative;
+        justify-content: center; 
+        align-items: center;  
+        flex-wrap: wrap;      
+      }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+          .ascii-link {
+            color: inherit;          
+            text-decoration: none;  
+            transition: color 0.2s ease;
+          }
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+        .da-container img {
+        width: 25vw;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+
+
+@media (max-width: 768px) {
+  .da-container img {
+    width: 100%;
+  }
+}
+
+
+
+
+</style> 
+</head>
+<body>
+<div class="da-container">
+<div style="text-align: center; display: block; width: 100%; zoom: 1.2;line-height: 1.5;">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+  <br>
+<div class="img-wrap"><a href="asset/photo/57.png" target="_blank"><img src="asset/photo/57.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/11.png" target="_blank"><img src="asset/photo/11.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/1.png" target="_blank"><img src="asset/photo/1.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/32.png" target="_blank"><img src="asset/photo/32.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/3.png" target="_blank"><img src="asset/photo/3.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/4.png" target="_blank"><img src="asset/photo/4.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/8.png" target="_blank"><img src="asset/photo/8.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/10.png" target="_blank"><img src="asset/photo/10.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/2.png" target="_blank"><img src="asset/photo/2.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/12.png" target="_blank"><img src="asset/photo/12.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/14.png" target="_blank"><img src="asset/photo/14.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/13.png" target="_blank"><img src="asset/photo/13.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/16.png" target="_blank"><img src="asset/photo/16.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/29.png" target="_blank"><img src="asset/photo/29.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/45.png" target="_blank"><img src="asset/photo/45.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/17.png" target="_blank"><img src="asset/photo/17.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/37.png" target="_blank"><img src="asset/photo/37.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/60.png" target="_blank"><img src="asset/photo/60.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/35.png" target="_blank"><img src="asset/photo/35.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/41.png" target="_blank"><img src="asset/photo/41.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/39.png" target="_blank"><img src="asset/photo/39.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/40.png" target="_blank"><img src="asset/photo/40.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/27.png" target="_blank"><img src="asset/photo/27.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/58.png" target="_blank"><img src="asset/photo/58.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/59.png" target="_blank"><img src="asset/photo/59.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/18.png" target="_blank"><img src="asset/photo/18.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/19.png" target="_blank"><img src="asset/photo/19.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/15.png" target="_blank"><img src="asset/photo/15.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/20.png" target="_blank"><img src="asset/photo/20.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/21.png" target="_blank"><img src="asset/photo/21.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/22.png" target="_blank"><img src="asset/photo/22.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/23.png" target="_blank"><img src="asset/photo/23.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/24.png" target="_blank"><img src="asset/photo/24.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/5.png" target="_blank"><img src="asset/photo/5.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/52.png" target="_blank"><img src="asset/photo/52.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/30.png" target="_blank"><img src="asset/photo/30.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/33.png" target="_blank"><img src="asset/photo/33.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/31.png" target="_blank"><img src="asset/photo/31.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/34.png" target="_blank"><img src="asset/photo/34.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/25.png" target="_blank"><img src="asset/photo/25.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/42.png" target="_blank"><img src="asset/photo/42.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/43.png" target="_blank"><img src="asset/photo/43.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/48.png" target="_blank"><img src="asset/photo/48.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/44.png" target="_blank"><img src="asset/photo/44.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/46.png" target="_blank"><img src="asset/photo/46.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/47.png" target="_blank"><img src="asset/photo/47.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/36.png" target="_blank"><img src="asset/photo/36.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/28.png" target="_blank"><img src="asset/photo/28.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/49.png" target="_blank"><img src="asset/photo/49.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/7.png" target="_blank"><img src="asset/photo/7.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/38.png" target="_blank"><img src="asset/photo/38.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/51.png" target="_blank"><img src="asset/photo/51.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/54.png" target="_blank"><img src="asset/photo/54.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/55.png" target="_blank"><img src="asset/photo/55.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/56.png" target="_blank"><img src="asset/photo/56.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/9.png" target="_blank"><img src="asset/photo/9.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/26.png" target="_blank"><img src="asset/photo/26.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/6.png" target="_blank"><img src="asset/photo/6.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/6.png" target="_blank"><img src="asset/photo/53.png" loading="lazy" alt=""></a></div>
+<div class="img-wrap"><a href="asset/photo/6.png" target="_blank"><img src="asset/photo/61.png" loading="lazy" alt=""></a></div>
+
+</div>
+</body>
+</html>

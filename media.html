@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>media log</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+      .da-container {
+        width: min(90vw, 100%);
+        height: 500px;
+        padding: 20px;
+        margin: 0 auto;
+        background: none;
+        overflow: visible;
+        font-size: 20px;
+        color: #a1a3b2;
+        display: flex;        
+        flex-direction: row;   
+        gap: 15px;            
+        position: relative;
+        justify-content: center; 
+        align-items: center;  
+        flex-wrap: wrap;      
+      }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+          .ascii-link {
+            color: inherit;          
+            text-decoration: none;  
+            transition: color 0.2s ease;
+          }
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+        .da-container img {
+        width: 20vw;
+        height: auto;
+        object-fit: cover;
+
+      }
+
+
+
+@media (max-width: 768px) {
+  .da-container img {
+    width: 100%;
+  }
+}
+
+
+.category-nav {
+    background-color: #aab4ff;
+    display: flex; 
+    padding: .8vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.category-nav a {
+    color: #12131b;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 3vw;
+    border-radius: 5px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.category-nav a:hover {
+        cursor: pointer;
+        font-weight: 900;
+        color: #000;
+
+}
+
+
+</style> 
+</head>
+<body>
+<div class="da-container">
+
+ <div style="text-align: center; display: block; width: 100%; zoom: 1.2; line-height: 1.5;">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+  <br>
+<nav class="nav category-nav" style="text-align: center; display: block; width: 100%;">
+<a class="active" onclick="filterByCategory('all', this)">All</a> <span style="opacity: 0.3; color: #12131b;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('kdrama', this)">K-drama</a> <span style="opacity: 0.3; color: #12131b;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('manhwa', this)">Manhwa</a> <span style="opacity: 0.3; color: #12131b;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('anime', this)">Anime</a>
+
+</nav>
+
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://nano-mashine.fandom.com/wiki/Nano_Machine" target="_blank"><img src="asset/manhwa/1.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Secret_Romantic_Guesthouse" target="_blank"><img src="asset/kdrama/44.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt13409432/" target="_blank"><img src="asset/anime/1.png" loading="lazy" alt=""></a></div>
+     <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Guardian:_The_Lonely_and_Great_God" target="_blank"><img src="asset/kdrama/60.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Trauma_Code:_Heroes_on_Call" target="_blank"><img src="asset/kdrama/26.png" loading="lazy" alt=""></a></div>
+
+
+   <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://omniscient-readers-viewpoint.fandom.com/wiki/Omniscient_Reader%E2%80%99s_Viewpoint_Wiki" target="_blank"><img src="asset/manhwa/15.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Extraordinary_Attorney_Woo" target="_blank"><img src="asset/kdrama/64.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt13706018/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/27.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_King:_Eternal_Monarch" target="_blank"><img src="asset/kdrama/65.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Crash_Landing_on_You" target="_blank"><img src="asset/kdrama/66.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt3741634/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/26.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Alchemy_of_Souls" target="_blank"><img src="asset/kdrama/46.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Alchemy_of_Souls:_Light_and_Shadow" target="_blank"><img src="asset/kdrama/47.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt7964088/" target="_blank"><img src="asset/anime/3.png" loading="lazy" alt=""></a></div>
+<div class="movie" data-category="manhwa" class="img-wrap"><a href="https://return-of-the-blossoming-blade.fandom.com/wiki/Mount_Hua_Sect" target="_blank"><img src="asset/manhwa/2.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt11034066/" target="_blank"><img src="asset/anime/2.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Bon_App%C3%A9tit,_Your_Majesty" target="_blank"><img src="asset/kdrama/48.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://leveling-with-the-gods.fandom.com/wiki/Leveling_With_The_Gods_Wiki" target="_blank"><img src="asset/manhwa/3.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Vincenzo_(Korean_Drama)" target="_blank"><img src="asset/kdrama/7.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Love_Next_Door" target="_blank"><img src="asset/kdrama/43.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt3398540/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/4.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/A_Killer_Paradox" target="_blank"><img src="asset/kdrama/8.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt12117218/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/5.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/A_Shop_for_Killers" target="_blank"><img src="asset/kdrama/9.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Eve_(Korean_Drama)" target="_blank"><img src="asset/kdrama/1.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt7441658/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/6.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://lout-of-counts-family.fandom.com/wiki/Lout_of_Count%27s_Family_Wiki" target="_blank"><img src="asset/manhwa/5.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Flower_of_Evil" target="_blank"><img src="asset/kdrama/2.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Kill_Boksoon" target="_blank"><img src="asset/kdrama/3.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt0113824/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/29.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Legend_of_the_Blue_Sea" target="_blank"><img src="asset/kdrama/4.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/18_Again_(Korean_Drama)" target="_blank"><img src="asset/kdrama/5.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt12343534/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/32.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://mercenary-enrollment.fandom.com/wiki/Mercenary_Enrollment_Wiki" target="_blank"><img src="asset/manhwa/6.png" loading="lazy" alt=""></a></div>
+    <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://kill-the-hero.fandom.com/wiki/Kill_the_Hero" target="_blank"><img src="asset/manhwa/7.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Strong_Girl_Bong-Soon" target="_blank"><img src="asset/kdrama/6.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt7808344/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/7.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Devil_Judge" target="_blank"><img src="asset/kdrama/10.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt5679720/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/8.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Weak_Hero_Class_2" target="_blank"><img src="asset/kdrama/11.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Family_Matters_(Korean_Drama)" target="_blank"><img src="asset/kdrama/12.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://manager-kim-manhwa.fandom.com/wiki/Manager_Kim_Wiki" target="_blank"><img src="asset/manhwa/8.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Hospital_Playlist" target="_blank"><img src="asset/kdrama/13.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Moving_(Korean_Drama)" target="_blank"><img src="asset/kdrama/14.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt13412606/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/22.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Brave_Citizen" target="_blank"><img src="asset/kdrama/15.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Witch:_Part_1._The_Subversion" target="_blank"><img src="asset/kdrama/16.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://talentswallowing-magician.fandom.com/wiki/Talent-Swallowing_Magician_Wiki" target="_blank"><img src="asset/manhwa/9.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Again_My_Life" target="_blank"><img src="asset/kdrama/17.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt13129190/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/9.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://max-level-newbie.fandom.com/wiki/Max_Level_Newbie_Wiki" target="_blank"><img src="asset/manhwa/10.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Heavenly_Idol" target="_blank"><img src="asset/kdrama/18.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://solo-leveling.fandom.com/wiki/Solo_Leveling_Wiki" target="_blank"><img src="asset/manhwa/18.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Princess_Hours" target="_blank"><img src="asset/kdrama/19.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Because_This_Is_My_First_Life" target="_blank"><img src="asset/kdrama/20.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt5626028/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/11.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Hyper_Knife" target="_blank"><img src="asset/kdrama/21.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Good_Bad_Mother" target="_blank"><img src="asset/kdrama/22.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://the-player-who-cant-level-up.fandom.com/wiki/The_Player_Who_Can%27t_Level_Up_Wiki" target="_blank"><img src="asset/manhwa/11.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Bad_and_Crazy" target="_blank"><img src="asset/kdrama/23.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Made_in_Korea_(Korean_Drama)" target="_blank"><img src="asset/kdrama/24.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://return-of-the-crazy-demon.fandom.com/wiki/Return_of_the_Crazy_Demon_Wiki" target="_blank"><img src="asset/manhwa/12.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/High_School_Return_of_a_Gangster" target="_blank"><img src="asset/kdrama/45.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Trigger_(Netflix)" target="_blank"><img src="asset/kdrama/25.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt0245429/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/18.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Uncanny_Counter" target="_blank"><img src="asset/kdrama/27.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Vigilante_(Korean_Drama)" target="_blank"><img src="asset/kdrama/28.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Cheer_Up!_(Korean_Drama)" target="_blank"><img src="asset/kdrama/29.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://murimlogin.fandom.com/wiki/Murim_Login_Wiki" target="_blank"><img src="asset/manhwa/14.png" loading="lazy" alt=""></a></div>
+     <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt4489416/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/10.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Tempest_(Korean_Drama)" target="_blank"><img src="asset/kdrama/30.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://return-of-the-disaster-class-hero.fandom.com/wiki/The_Return_of_the_Disaster-Class_Hero_Wiki" target="_blank"><img src="asset/manhwa/13.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/It%27s_Okay_to_Not_Be_Okay" target="_blank"><img src="asset/kdrama/31.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Mr._Queen" target="_blank"><img src="asset/kdrama/32.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt9304350/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/12.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Our_Unwritten_Seoul" target="_blank"><img src="asset/kdrama/33.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Buried_Hearts" target="_blank"><img src="asset/kdrama/34.png" loading="lazy" alt=""></a></div>
+ 
+
+
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://tbate.fandom.com/wiki/The_Beginning_After_The_End_Wiki" target="_blank"><img src="asset/manhwa/4.png" loading="lazy" alt=""></a></div>
+
+
+
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Taxi_Driver_(Korean_Drama)" target="_blank"><img src="asset/kdrama/35.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://tomb-raider-king.fandom.com/wiki/Tomb_Raider_King_Wiki" target="_blank"><img src="asset/manhwa/16.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/King_the_Land" target="_blank"><img src="asset/kdrama/36.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt2340841/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/17.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Mantis_(Netflix)" target="_blank"><img src="asset/kdrama/37.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/I,_The_Executioner" target="_blank"><img src="asset/kdrama/38.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt0108432/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/21.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Yaksha:_Ruthless_Operations" target="_blank"><img src="asset/kdrama/39.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt5311514/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/16.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Judge_from_Hell" target="_blank"><img src="asset/kdrama/40.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://tapas.io/series/fight-like-a-girl/info" target="_blank"><img src="asset/manhwa/17.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/When_The_Phone_Rings" target="_blank"><img src="asset/kdrama/41.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Doctor_Slump" target="_blank"><img src="asset/kdrama/42.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt0347149/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/13.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Glory" target="_blank"><img src="asset/kdrama/49.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Study_Group" target="_blank"><img src="asset/kdrama/50.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt6112556/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/31.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt5249462/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/19.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/One_Dollar_Lawyerg" target="_blank"><img src="asset/kdrama/51.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://the-dark-magician-transmigrates-after-66666-years.fandom.com/wiki/Main_Page" target="_blank"><img src="asset/manhwa/21.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Space_Sweepers" target="_blank"><img src="asset/kdrama/52.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Bogota:_City_of_the_Lost" target="_blank"><img src="asset/kdrama/53.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/My_Love_From_the_Star" target="_blank"><img src="asset/kdrama/54.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt0877057/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/24.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt1214085/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/25.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Arthdal_Chronicles" target="_blank"><img src="asset/kdrama/55.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/She_Was_Pretty" target="_blank"><img src="asset/kdrama/56.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt6354518/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/30.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Who_Are_You:_School_2015" target="_blank"><img src="asset/kdrama/57.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://mysranks.fandom.com/wiki/The_S-Ranks_That_I_Raised" target="_blank"><img src="asset/manhwa/19.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Healer" target="_blank"><img src="asset/kdrama/58.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_K2" target="_blank"><img src="asset/kdrama/59.png" loading="lazy" alt=""></a></div>
+   <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt11958344/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/14.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="anime" class="img-wrap"><a href="https://www.imdb.com/title/tt13196080/?ref_=ext_shr_lnk" target="_blank"><img src="asset/anime/15.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/Touch_Your_Heart" target="_blank"><img src="asset/kdrama/61.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/The_Heirs_-_Korean_Drama" target="_blank"><img src="asset/kdrama/62.png" loading="lazy" alt=""></a></div>
+  <div class="movie" data-category="manhwa" class="img-wrap"><a href="https://villain-to-kill-webtoons.fandom.com/wiki/Villain_to_Kill_(Webtoons)_Wiki" target="_blank"><img src="asset/manhwa/20.png" loading="lazy" alt=""></a></div>
+ <div class="movie" data-category="kdrama" class="img-wrap"><a href="https://asianwiki.com/While_You_Were_Sleeping_(2017)" target="_blank"><img src="asset/kdrama/63.png" loading="lazy" alt=""></a></div>
+
+
+
+
+</div>
+
+<script>
+    function filterMovies() {
+        const movies = document.querySelectorAll('.movie');
+        const categoryLinks = document.querySelectorAll('.nav.category-nav a');
+
+        const selectedCategory =
+            Array.from(categoryLinks)
+                .find(link => link.classList.contains('active'))
+                ?.getAttribute('onclick')
+                .match(/'([^']+)'/)[1] || 'all';
+
+        movies.forEach(movie => {
+            const matchesCategory =
+                (selectedCategory === 'all' || movie.dataset.category === selectedCategory);
+
+            movie.style.display = matchesCategory ? 'block' : 'none';
+        });
+    }
+
+    function filterByCategory(category, element) {
+        const categoryLinks = document.querySelectorAll('.nav.category-nav a');
+
+        categoryLinks.forEach(link => link.classList.remove('active'));
+        element.classList.add('active');
+
+        filterMovies();
+    }
+
+    function showReview(movie) {
+        movie.querySelector('.review').style.display = 'block';
+    }
+
+    function hideReview(movie) {
+        movie.querySelector('.review').style.display = 'none';
+    }
+</script>
+</body>
+</html>

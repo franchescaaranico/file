@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>artwork</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+      .da-container {
+        width: min(90vw, 100%);
+        height: 500px;
+        padding: 20px;
+        margin: 0 auto;
+        background: none;
+        overflow: visible;
+        font-size: 20px;
+        color: #a1a3b2;
+        display: flex;        
+        flex-direction: row;   
+        gap: 15px;            
+        position: relative;
+        justify-content: center; 
+        align-items: center;  
+        flex-wrap: wrap;      
+      }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+          .ascii-link {
+            color: inherit;          
+            text-decoration: none;  
+            transition: color 0.2s ease;
+          }
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+        .da-container img {
+        width: 25vw;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+
+      }
+
+
+
+@media (max-width: 768px) {
+  .da-container img {
+    width: 100%;
+  }
+}
+
+
+
+
+
+</style> 
+</head>
+<body>
+
+<div class="da-container">
+ <div style="text-align: center; display: block; width: 100%; zoom: 1.2; line-height: 1.5;">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+    <div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   12px; "> 2023</div>
+<div class="img-wrap"><img src="icons/artworks/a1.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a2.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a3.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a4.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a5.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a6.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a7.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a8.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a9.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a10.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a11.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a12.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a13.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a14.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a15.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a16.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a17.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a18.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a19.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a20.png" loading="lazy" alt=""></div>
+
+    <div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   50px;"> 2021</div>
+<div class="img-wrap"><img src="icons/artworks/a21.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a22.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a23.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a24.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a25.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a26.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a27.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a28.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a29.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a30.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a31.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a32.png" loading="lazy" alt=""></div>
+
+<div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   50px;">poorly drawn comics</div>
+<div class="img-wrap"><img src="icons/artworks/a77.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a78.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a79.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a80.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a70.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a71.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a72.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a73.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a74.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a75.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a76.png" loading="lazy" alt=""></div>
+
+
+    <div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   50px;"> 2020</div>
+<div class="img-wrap"><img src="icons/artworks/a33.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a35.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a36.png" loading="lazy" alt=""></div>
+    <div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   50px;"> 2019</div>
+<div class="img-wrap"><img src="icons/artworks/a37.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a38.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a39.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a40.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a41.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a42.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a43.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a44.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a45.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a46.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a47.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a48.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a49.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a50.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a53.png" loading="lazy" alt=""></div>
+
+<div class="img-wrap"><img src="icons/artworks/a52.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a51.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a54.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a55.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a56.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a57.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a58.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a59.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a60.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a61.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a62.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a63.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a64.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a65.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a66.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a67.png" loading="lazy" alt=""></div>
+<div class="img-wrap"><img src="icons/artworks/a68.png" loading="lazy" alt=""></div>
+
+   <div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top:   50px;"> 2018 - very first digital drawing</div>
+<div class="img-wrap"><img src="icons/artworks/a69.png" loading="lazy" alt=""></div>
+
+</div>
+</body>
+</html>

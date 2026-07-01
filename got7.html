@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>got7 stage</title><link rel="icon" href="icons/flower.png">
+
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Sekuya&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+html,
+body {
+  font-family: "Crimson Pro", serif;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #12131b;
+  background-image: url("images/got7/g7bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -70px;
+  cursor: url("images/got7/cursor1g7.png"), auto;
+}
+
+body.clicking {
+  cursor: url("images/got7/cursor2g7.png"), auto;
+}
+
+::selection {
+  background: #00291c;
+  color: white;
+}
+
+/* Cursor behavior */
+.person,
+.person:hover,
+.person * {
+  cursor: inherit !important;
+}
+
+body.clicking .person,
+body.clicking .person:hover,
+body.clicking .person * {
+  cursor: url("images/got7/cursor2g7.png"), auto !important;
+}
+
+
+.concert-lights img {
+  display: block;
+  width: 800px;
+  filter: drop-shadow(0 0 10px #61c295);
+  animation: flickerGreen 1s infinite;
+}
+
+@keyframes flickerGreen {
+  0%, 100% { opacity: 0.7; }
+  10%, 50%, 70% { opacity: 0.3; }
+  30%, 80% { opacity: 0.5; }
+}
+
+.scroll-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 700px;
+  padding: 15px;
+  overflow-y: auto;
+  z-index: 9;
+
+  font-family: "DM Serif Text", serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #e6fff7;
+
+  background: linear-gradient(
+    135deg,
+    #2f8a70 0%,
+    #256a55 40%,
+    #1e5a48 60%,
+    #3aa58a 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+    0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.scroll-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 1px,
+    rgba(0, 0, 0, 0.03) 2px
+  );
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #1e5a48;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #3aa58a,
+    #256a55,
+    #1e5a48
+  );
+}
+
+
+.center-png {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 400px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter:
+    drop-shadow(0 0 2px rgba(80, 255, 180, 0.6))
+    drop-shadow(0 0 8px rgba(60, 200, 140, 0.45))
+    drop-shadow(0 0 16px rgba(40, 160, 110, 0.35));
+  animation: neonFlickerPNG 3.2s infinite;
+}
+
+@keyframes neonFlickerPNG {
+  0%, 9%, 26%, 100% { opacity: 1; }
+
+  6% {
+    opacity: 0.85;
+    filter:
+      drop-shadow(0 0 1px rgba(80, 255, 180, 0.4))
+      drop-shadow(0 0 5px rgba(60, 200, 140, 0.3));
+  }
+
+  14% { opacity: 0.9; }
+
+  18% {
+    opacity: 1;
+    filter:
+      drop-shadow(0 0 2px rgba(80, 255, 180, 0.55))
+      drop-shadow(0 0 10px rgba(60, 200, 140, 0.4))
+      drop-shadow(0 0 20px rgba(40, 160, 110, 0.3));
+  }
+
+  22% { opacity: 0.75; }
+}
+
+
+.person {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.person:hover {
+  transform: translateY(-15px) scale(1.1);
+}
+
+
+.pop-hint {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+
+  font-family: Sekuya, sans-serif;
+  font-size: 25px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #cafff1;
+
+  text-shadow:
+    0 0 6px rgba(160, 255, 220, 0.9),
+    0 0 14px rgba(58, 165, 138, 0.8),
+    0 0 28px rgba(58, 165, 138, 0.6);
+
+  animation: softPop 1.5s ease-in-out infinite;
+}
+
+@keyframes softPop {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  25%, 75% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+
+.exit-btn {
+  position: fixed;
+  top: 720px;
+  left: 15px;
+  padding: 10px 20px;
+  z-index: 100;
+
+  font-family: Sekuya, sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+
+  color: #cafff1;
+  background: linear-gradient(135deg, #2f8a70, #256a55);
+  border: 3px solid white;
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 6px rgba(58, 165, 138, 0.6),
+    0 0 14px rgba(58, 165, 138, 0.4);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exit-btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 10px rgba(58, 165, 138, 0.8),
+    0 0 20px rgba(58, 165, 138, 0.6);
+}
+
+
+</style>
+</head>
+<body>
+
+ <div class="container">
+<div class="concert-lights">
+<img src="images/got7/lights.png" style= 
+  "width:2000px;">
+</div>
+
+<div class="pop-hint">
+  Click each member to hear them sing!!
+</div>
+
+
+<div class="scroll-container">
+  <p>
+
+<p style="color: #000;"><b>NOTE:</b> BEST VIEWED ON DESKTOP</p><br>
+Hello, welcome to the GOT7 concert stage!!<br><br>
+
+
+I made it look this way because attending a GOT7 concert is on my bucket list. Not that I desperately want to, it would just be nice to experience it at least once. (fingers crossed!)<br><br>
+
+I found GOT7 because I had a crush on Lee Ho-su, the fictional character Jinyoung played in Unwritten Seoul. I loved his character so much that I got curious about the actor and googled him. Then I found out he is a kpop idol and I got to know the rest of Got7 members. Also, I realized he is very private and rarely posts. It made me a little sad. There would be no daily updates to fill my day. At the same time, I felt relieved. At least my delulu would not be fed and spiral out of control.<br><br>
+
+I fell inlove with GOT7, though it only lasted about a week. My critical mind stepped in and tamed my fangirling self, also because I had already finished watching the funniest variety shows they ever participated in.<br><br>
+
+Only later did I realize I had actually watched everything. Every show. Every clip. Especially Hard Carry and their trainee mini vlogs, full of petty fights that somehow became their lore. I still laugh thinking about the chicken wing fight and the rice drama. It is still funny.<br><br>
+
+Watching their videos felt strange. They were from 2014-2021, and I was watching them in 2025. It felt like nostalgia for an era I never lived in. I felt FOMO for something I was too young to even participate in. It's kinda lonely, loving them in that version of time, when there are so many new K pop groups now and almost everyone else has already moved on. And when longtime Agases talk about GOT7 now, they just think of it as a core memory of their teenage years. Most of them are now aunties and moms.<br><br>
+
+That is why I was extremely happy when they had a comeback album in January 2025.<br><br>
+
+I also bought their 2021 album, and I freaked out because out of all the versions, I got my bias’s version. Jinyoung. Aaaa.<br><br>
+
+I love their music. I am proud of how well their solo careers are going. I love how their personalities show through their individual songs.<br><br>
+
+At one point, I thought posting their faces on my wall was a good idea.
+
+It was not.<br><br>
+
+Seven men staring at me constantly made me too self conscious to do anything weird in my room. Even changing clothes felt awkward.
+
+So I ripped all their posters down.<br><br>
+Problem solved.<br>
+  </p>
+</div>
+
+<!-- Center big text -->
+<img src="images/got7/glow.png" class="center-png">
+
+
+
+
+
+
+
+
+<img src="images/got7/devjb.png" class="person" style="top: 13%; left: 75%;  z-index: 9; width: 360px;" data-audio="https://chesca.nekoweb.org/crash.mp3" alt="Person 1">
+<img src="images/got7/youngjaears.png" class="person" style="top: 15%; left: 44%; z-index: 6;  width: 175px; " data-audio="https://chesca.nekoweb.org/ESCPAE%20LAST.mp3" alt="Person 2">
+
+<img src="images/got7/jinyoungpark.png" class="person" style="top: 14%; left: 32%; width: 250px; z-index: 7; " data-audio="https://chesca.nekoweb.org/CANDY.mp3" alt="Person 3">
+
+<img src="images/got7/marktuan.png" class="person" style="top: 13%; left: 9%; z-index: 9;  width: 270px; " data-audio="https://chesca.nekoweb.org/WORLD.mp3" alt="Person 4">
+
+<img src="images/got7/bambam.png" class="person" style="top: 29%; left: 64%; z-index: 6; width: 250px;" data-audio="https://chesca.nekoweb.org/ribbon.mp3" alt="Person 5">
+<img src="images/got7/jacksonwang.png" 
+     class="person" 
+     style="top: 15%; left: 21.5%; width: 255px; z-index: 8;" 
+     data-audio="https://chesca.nekoweb.org/dck%20(1).mp3"  
+     alt="Person 6">
+
+
+<img src="images/got7/yugeum.png" class="person" style="top: 6%; left: 50%; width: 320px; z-index: 5;" data-audio="https://chesca.nekoweb.org/LASOLA.mp3" alt="Person 7">
+
+<a href="index.html" class="exit-btn">EXIT</a>
+
+</div>
+<script>const people = document.querySelectorAll('.person');
+  let currentAudio = null; document.addEventListener('mousedown', () => {document.body.classList.add('clicking');});
+  document.addEventListener('mouseup', () => { document.body.classList.remove('clicking'); });
+  people.forEach(person => { person.addEventListener('click', () => { const audioSrc = person.dataset.audio; if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0;}
+  currentAudio = new Audio(audioSrc);currentAudio.play();});});
+</script>
+
+
+
+
+</body>
+</html>

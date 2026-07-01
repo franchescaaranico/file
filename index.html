@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>The Unzipped Files</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+        .da-container {
+        width: min(70vw, 100%);
+          height: auto;
+          margin: 0 auto;
+          text-align: justify;
+          background: none;
+          overflow: visible;
+          font-size: 20px;
+          color: #a1a3b2;
+          line-height:  1.5;
+        }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        background: #171927;
+        border: 0.05em solid #aab4ff;
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+      .card a {
+          transition: color 0.2s ease, text-shadow 0.2s ease;
+          font-size: 1.2em;
+      }
+
+.card:hover a {
+    text-decoration: underline;
+    color: #e6ebff;
+    text-shadow:
+        0 0 6px #aab4ff;
+
+}
+      .card:hover h3 {
+          color: #aab4ff;
+          text-shadow: 0 0 2px #aab4ff;
+      }
+
+      @media (max-width: 1024px) {
+          .grid {
+              column-count: 2;
+          }
+      }
+
+      @media (max-width: 700px) {
+          .grid {
+              column-count: 1;
+          }
+      }
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+      .da-container img {
+        width: 25vw;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+        filter:
+          grayscale(85%)
+          sepia(18%)
+          hue-rotate(205deg)
+          saturate(65%)
+          brightness(0.58)
+          contrast(1.18);
+        mix-blend-mode: luminosity;
+        transition: filter 0.2s ease;
+      }
+            .da-container .img-wrap:hover img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+
+
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: -2vw;
+}
+
+.img-frame,
+.about-text {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.img-frame {
+    flex: 0 0 400px;
+    padding-top: 25px;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 2;
+    font-size: 1.5em;
+    line-height: 1.3;
+    padding: 10px;
+    padding-top: 0;
+    text-align: left; 
+}
+
+
+
+@media (max-width: 1200px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .img-frame {
+        width: 100%;
+        flex: none;
+    }}
+
+
+.category-nav {
+    display: flex; 
+    background-color: #aab4ff;
+    padding: .8vw;
+    width: 68.5vw;
+}
+
+.category-nav a {
+    color: #12131b;
+    font-weight: 600;
+    font-size: 1.5vw;
+    text-decoration: none;
+    padding: 3vw;
+
+}
+.category-nav a:hover {
+        cursor: pointer;
+        font-weight: 900;
+        color: #000;
+        text-shadow: none;
+}
+
+
+</style> 
+</head>
+<body>
+
+<div class="da-container">
+<div style="text-align: center; display: block; width: 100%; zoom: 1.2;  margin-top: 17px;line-height: 1.5; ">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+  <br>
+
+<div class="about-section">
+
+    <div class="img-frame">
+        <div class="img-wrap">
+            <img src="images/me.png" loading="lazy" style="border-radius: 500px; border: 2px solid #aab4ff;">
+        </div>
+    </div>
+
+    <div class="about-text"><p>
+           <span style="font-size: .68em; line-height:1.2; display:inline-block; border-bottom: 3px solid #8b8c93; padding-bottom: 15px; color: #8b8c93; font-family: monospace; opacity:   .6;"> Vulnerability is terrifying. To reveal your true self is to place a fragile piece of your soul into someone else's hands, trusting that they will hold it gently. Yet there is always the possibility that they may distort it, reject it, or simply walk away. Often, it is not the wounds people leave behind that haunt us the longest, but the emptiness that follows as they leave.
+            And still, we do it again and again, because even pain feels safer than uncertainty.</span><br>
+
+       <span style="padding-top: 30px; display:inline-block;"> Welcome to The Unzipped Files of Franchesca Aranico.<span style=" color:  #8f1919; font-weight: 600;"> Best viewed on desktop and not mobile-friendly.</span> This is a personal site and may include sensitive and suggestive topics not suitable for children.  Do not feed Ai my work. I’d appreciate it if you ask before quoting or sharing anything from this site.  You can reach me here [<a href="mailto:itsaranico@proton.me">✉</a>] or leave a message here [<a href="gb.html">✎</a>]. </p></span>
+    </div>
+</div>
+
+  <h1 style="font-size: 4.5em; line-height: 1; text-align: left; margin-bottom: -10px; font-weight: 500;">The Unzipped Files</h1> <h2 style="font-weight: 200; "> A collection of essays and unfinished thoughts on stuff</h2>
+
+  <nav class="nav category-nav" style="text-align: center; display: block; margin-bottom: 20px;">
+<a class="active" onclick="filterByCategory('all', this)">All</a> <span style="opacity: 0.3; color: #000;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('p', this)">Perspectives</a> <span style="opacity: 0.3; color: #000;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('v', this)">Vigenettes</a> <span style="opacity: 0.3; color: #000;"> &nbsp;|&nbsp; </span>
+<a onclick="filterByCategory('d', this)">Depths</a>
+
+</nav>
+<br>
+  <div class="grid">
+
+   <div class="card topic" data-category="p">
+        <h3>flirting as emotional generosity</h3>
+        <div class="date">May 15, 2026</div>
+        <p class="synopsis">Flirting means you are a likable person, and I want you to feel that. Maybe I actually like you and even want to ravish you naked, but I don’t have to act on it. And if I don’t, it doesn’t mean there’s something wrong with you. It’s just about things outside of us.</p>
+        <a href="essays/flirt.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="p">
+        <h3>to be loved or to be deeply understood?</h3>
+        <div class="date">April 24, 2026</div>
+        <p class="synopsis">I feel like I’ve experienced being loved in a lot of ways, being made to feel cherished and desired, being put on a pedestal, and, funnily enough, being told I was worth dying for, but I have never felt loved in a way that made me feel understood. </p>
+        <a href="essays/intimacy2.html">Read More</a>
+    </div>
+
+
+        <div class="card topic" data-category="p">
+        <h3>the intimacy of being forgotten</h3>
+        <div class="date">April 23, 2026</div>
+        <p class="synopsis">
+           Jean-Paul Sartre, more accurately, talks about this as “the Look,” which describes how encountering another person’s gaze makes you aware of yourself as an object for them, provoking feelings like shame or vulnerability.
+        </p>
+        <a href="essays/forgotten.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="p">
+        <h3>intellectual vs. physical intimacy</h3>
+        <div class="date">April 22, 2026</div>
+        <p class="synopsis">I believe intimacy is not always tangible, like sex or constant texting. There is a form of seduction rooted in intimate psychological experience, beginning with thoughts that pass between people through the exchange of words. </p>
+        <a href="essays/intimacy1.html">Read More</a>
+    </div>
+
+
+
+
+
+        <div class="card topic" data-category="d">
+        <h3>post‑grad existential crisis</h3>
+        <div class="date">April 27, 2026</div>
+        <p class="synopsis">Life has been great recently. It feels so good to be out of college and finally do whatever I want. The good news is that I am responsible for my own life. The bad news is that I am responsible for my own life, both terrifying and empowering.</p>
+        <a href="essays/postgrad.html">Read More</a>
+    </div>
+        <div class="card topic" data-category="v">
+        <h3>don’t yell at me, or i’ll cry on my birthday</h3>
+        <div class="date">March 28, 2026</div>
+        <p class="synopsis">What fascinates me about people is how their attitude changes when deadlines approach or money is involved. They get cranky and throw adult tantrums. On my birthday, someone had loans to pay and got ten minutes left before the cutoff or else the interest would double.  </p>
+        <a href="essays/bday.html">Read More</a>
+    </div>
+
+
+    <div class="card topic" data-category="v">
+        <h3>to the most brutal man i loved</h3>
+        <div class="date">March 24, 2026</div>
+        <p class="synopsis">It’s been so long since I last thought of you. I just graduated , and I didn’t invite anyone. The only person I wanted there was you. I searched the crowd for you until my vision blurred with tears along with the painful realization that you would never be there. I hate you and I wish you were here.</p>
+        <a href="essays/brutal.html">Read More</a>
+    </div>
+
+        <div class="card topic" data-category="d">
+        <h3>how to survive a dinner date in a murky cave</h3>
+        <div class="date">March 11, 2026</div>
+        <p class="synopsis">Dating... oh, how I’m scared of dating. My self-esteem sinks deeper than the corpse in its grave. Whenever a guy says I’m pretty, my first instinct is to show him my barest unfiltered selfie. Go away. I know I'm ugly... you should think of another trick to get me in bed. I freak out whenever some dudes slide into my DMs to ask me on a date and tell me they like me..</p>
+        <a href="essays/date.html">Read More</a>
+    </div>
+
+
+    <div class="card topic" data-category="v">
+        <h3>a fire broke out and we drank some beer</h3>
+        <div class="date">February 15, 2026</div>
+        <p class="synopsis">February started off wild. Last Feb 8, a fire broke out in our neighborhood. My mom and I quickly accepted the reality that our house and everything inside would likely turn to ashes, but at least we are alive. The only thing I carried out with me was my baby sister. It felt like a free taste of hell with how hot it was being surrounded by fire.</p>
+        <a href="essays/fire.html">Read More</a>
+    </div>
+
+  <div class="card topic" data-category="d">
+        <h3>morally flexible enough to confuse the gods</h3>
+        <div class="date">January 29, 2026</div>
+        <p class="synopsis">But there's a bad man in everyone, no matter who we are
+There's a rapist and a Nazi living in our tiny hearts
+Child pornographers and cannibals and politicians too
+There's someone in your head waiting to fucking strangle you</p>
+        <a href="essays/moral.html">Read More</a>
+    </div>
+
+
+   
+
+    <div class="card topic" data-category="d">
+        <h3>finding the right words</h3>
+        <div class="date">October 15, 2025</div>
+        <p class="synopsis">Writing feels like thinking out loud, except sometimes it’s just my thoughts running laps around my head. I analyze everything, why things happen and how I feel about them. Yet I’m not sure if I’m actually learning or just orbiting the same thought, mistaking motion for progress.</p>
+        <a href="essays/rightwords.html">Read More</a>
+    </div>
+
+
+        <div class="card topic" data-category="d">
+        <h3>why everything feels cringe and staged</h3>
+        <div class="date">October 14, 2025</div>
+        <p class="synopsis">Lately, everything feels off. Things that never bothered me before, as well as things that once brought me joy, now trigger an involuntary wince. I scroll through social media and spot a video that gives away its agenda too soon. A bright thumbnail, a suspiciously tidy apartment, a voice too enthusiastic to be real and I swipe away before it has the chance to hypnotize me.</p>
+        <a href="essays/cringe.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="d">
+        <h3>theory on inexperienced love</h3>
+        <div class="date">October 16, 2025</div>
+        <p class="synopsis">I have been thinking about my non-existent love life lately, and for once, I am not trying to romanticize it. I have always told myself that I am not ready. That love, at least for now, is a chapter I am not equipped to open. But this self-awareness has been on repeat for so long that I am beginning to wonder if my hesitation is less about timing and more about fear.</p>
+        <a href="essays/inexperienced.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="d">
+        <h3>long-term tenant of rock bottom</h3>
+        <div class="date">October 13, 2025</div>
+        <p class="synopsis">There’s a strange numbness that comes after too many failures. Not the soul-splitting kind of pain that arrives with the first fall, but something duller. A fatigue that feels like apathy. I’m somewhere in between: not in hell, because I’m no longer suffering, but not in heaven either, because I’m far from thriving.</p>
+        <a href="essays/rock.html">Read More</a>
+    </div>
+
+
+ <div class="card topic" data-category="p">
+        <h3>how manipulation works</h3>
+        <div class="date">February 17, 2025</div>
+        <p class="synopsis">These are just products of overanalyzing people's behavior to an arguably unhealthy degree. I could be wrong about a few things, and some of these concepts may already have proper psychological terms that I simply do not know.</p>
+        <a href="essays/manipulate.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="d">
+        <h3>bidding farewell to online friends</h3>
+        <div class="date">August 14, 2025</div>
+        <p class="synopsis">I have this habit of making my exits a bit conspicuous. I can’t seem to disappear without leaving something behind. A letter. A handmade gift. A message filled with too many thank-yous and too many sorrys. My goodbyes always come wrapped in ribbons and reverence, as if I am archiving people instead of letting them go.</p>
+        <a href="essays/farewell.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="d">
+        <h3>i want to be taken by surprise</h3>
+        <div class="date">October 11, 2025</div>
+        <p class="synopsis">Lately, I’ve been thinking... What do I really want in life? And the honest answer is I don’t exactly know. It’s not that I feel lost, it’s just that nothing feels quite definitive. I know what I need to do: study and work. But when it comes to what I want, I find myself hesitating. Because deep down, I actually want to be surprised.</p>
+        <a href="essays/surprise.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="d">
+        <h3>taking off the mask</h3>
+        <div class="date">July 16, 2025</div>
+        <p class="synopsis">I do not think I have ever confronted the full unfiltered truth about myself without flinching. When I write in my journal, I instinctively avert my gaze or pause after recording the uncomfortable thoughts, the ones I would never dare share publicly. There is a friction between what I know and what I admit, a subtle self-censorship that has become almost instinctive.</p>
+        <a href="essays/persona.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="d">
+        <h3>falling apart properly</h3>
+        <div class="date">May 23, 2025</div>
+        <p class="synopsis">
+            Boredom has a strange way of waking you up. When life feels repetitive and dull, it dares you to change something. But change doesn’t always mean fixing what’s broken, sometimes it means letting things fall apart. I’ve realized that not every shattered piece of me deserves to be put back. Maybe some parts are meant to stay gone. Maybe I’m not falling apart after all. Maybe I’m just falling into place.
+        </p>
+        <a href="essays/falling.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="v">
+        <h3>i will graduate</h3>
+        <div class="date">February 18, 2025</div>
+        <p class="synopsis">
+            I might stumble and fall or pause for a bit, but I will never go backward. Even if I cannot feel it, I am always moving forward. That truth comforts me on the days when progress feels invisible and success feels far away.
+        </p>
+        <a href="essays/graduate.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="d">
+        <h3>embracing the pain</h3>
+        <div class="date">October 18, 2024</div>
+        <p class="synopsis">
+            Lately, I’ve been haunted by a thought that feels both comforting and slightly twisted, that no matter how many times love (platonic, familial, romantic) has disappointed me, I never really give up on it. Despite every emotional whiplash, every heartbreak that left me gasping for clarity, I still believe in love, perhaps more than I should. You’d think that after all the mess, I’d learn to protect myself better. But instead, I’ve made it through without losing faith on it.
+        </p>
+        <a href="essays/pain.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="p">
+        <h3>why self-harm comforts you</h3>
+        <div class="date">April 11, 2023</div>
+        <p class="synopsis">
+            You are out with your friends, laughing loudly like the happy person everyone believes you to be. Your laughter rings clear and convincing, a perfect disguise for the mind that never stops screaming its rebellion against existence. 
+        </p>
+        <a href="essays/selfharm.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="p">
+        <h3>why self-help can't help</h3>
+        <div class="date">January 14, 2023</div>
+        <p class="synopsis">
+            I guess we have all been there, scrolling through online recommendations to find that one book that will unlock the secrets to a better life. Usually, this happens when you hit rock bottom. But you don't know where to start, plus people keep telling you to meditate as all the answers you need are within yourself, which never really helped at all, since as of right now, the only thing you can get deep within you is a booger in your nose.
+        </p>
+        <a href="essays/selfhelp.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="v">
+        <h3>the comfort of stagnation</h3>
+        <div class="date">November 14, 2021</div>
+        <p class="synopsis">
+           I've been physically and physiologically lethargic the majority of the months in 2021. Simply speaking, I'm in a slump for a while, felt stagnant, yet I am oddly comfortable too. I read an unhealthy amount (800+) of manga, many of them laughably cliché, their titles too long to remember. The more I read, the more I felt like a collage of the stories I consumed, a bundle of secondhand emotions stitched together from fictional lives. I wasn’t improving, only accumulating.
+        </p>
+        <a href="essays/stagnation.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="v">
+        <h3>racing my own clock</h3>
+        <div class="date">October 11, 2021</div>
+        <p class="synopsis">
+           I keep on rushing things. Every day feels like a marathon against an invisible clock, as if time is a limited resource I have to extract meaning from before it slips away. I do not feel that I have enough of it. Time to breathe, time to savor, time to live the moments I claim to love.
+        </p>
+        <a href="essays/clock.html">Read More</a>
+    </div>
+
+
+        <div class="card topic" data-category="v">
+        <h3>confessions of the burnt-out slacker</h3>
+        <div class="date">December 21, 2021</div>
+        <p class="synopsis">
+           I spent the past week indulging in anime instead of preparing for my final exams, immersing myself in stories of heroes who never waver. They fight, fail, and rise again with unwavering conviction. Every obstacle they face eventually yields to determination, intellect, or, conveniently, a plot armor. Their worlds reward persistence. Mine doesn’t. It’s humbling, perhaps humiliating, to admit that I lack that same burning resolve. 
+        </p>
+        <a href="essays/burnout.html">Read More</a>
+    </div>
+
+
+       <div class="card topic" data-category="p">
+        <h3>college is making us dumb</h3>
+        <div class="date">February 1, 2021</div>
+        <p class="synopsis">
+        Education should teach us how to think, not just how to memorize. It should cultivate intelligence rather than cleverness. True learning allows us to grow into our unique selves instead of producing replicas of the generation before us. But when education rewards conformity and punishes deviation, where is the intelligence in that?
+        </p>
+        <a href="essays/dumb.html">Read More</a>
+    </div>
+
+    <div class="card topic" data-category="p">
+        <h3>god is socially constructed to comfort the ego</h3>
+        <div class="date">January 23, 2021</div>
+        <p class="synopsis">
+           There are moments in life when the floor beneath your convictions gives way. For me, that moment is now. I experienced what psychologists call the Dunning-Kruger effect, the cognitive bias where one overestimates their knowledge until reality humbles them. 
+        </p>
+        <a href="essays/goda.html">Read More</a>
+    </div>
+    <div class="card topic" data-category="v">
+        <h3>how i lost 13 pounds in 3 months</h3>
+        <div class="date">October 28, 2021</div>
+        <p class="synopsis">
+         I implemented a 30-day workout routine, but by the end of the month, I eventually continued doing it out of habit, and after the third month, I had lost 13 pounds. What was fascinating to me was how uneven the weight reduction was in my body. While my arms and waist got slimmer, and my chest and stomach got flatter, my thighs and butt still stayed a bit bigger.
+        </p>
+        <a href="essays/cardio.html">Read More</a>
+    </div>
+
+
+    <div class="card topic" data-category="v">
+        <h3>i accomplished nothing</h3>
+        <div class="date">October 1, 2021</div>
+        <p class="synopsis">
+           As 2021 draws to a close, I find myself compelled to revisit the New Year’s resolutions I crafted nine months ago. The first was ambitious: to read at least twenty books on spirituality. Did I achieve this goal? Not even close. Instead of exploring the inner landscapes of the soul, I found myself immersed in ████-hwa, a detour that speaks less to my intellectual discipline and more to my procrastination habits and misguided curiosity.
+        </p>
+        <a href="essays/accomplish.html">Read More</a>
+    </div>
+
+
+
+
+    <div class="card topic" data-category="d">
+        <h3>what am i doing with my life?</h3>
+        <div class="date">May 26, 2021</div>
+        <p class="synopsis">
+           Thinking about life feels like trying to untangle a thousand invisible threads. There’s the future and its looming uncertainty, university and its relentless obligations, family and the weight of expectation, friends and their unspoken comparisons, and distractions that blur the line between living and merely existing.
+        </p>
+        <a href="essays/life.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="d">
+        <h3>life is pointless and precious</h3>
+        <div class="date">April 22, 2021</div>
+        <p class="synopsis">
+        At nineteen, I often think that life makes no sense. Before I became the kind of person who stares blankly at walls and questions the point of existence, I used to be baffled by people who got deeply depressed. I would think, why can’t you just be happy? Happiness seemed like the obvious choice, not a mystery. But now that I’ve joined the boat, I realize how naïve that thought was. Sadness can be strangely comforting. It lures you in until you no longer remember what “normal” felt like. Maybe this is what melancholy that they call, not just sadness, but the familiarity of it.   
+        </p>
+        <a href="essays/precious.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="v">
+        <h3>the life i want to live</h3>
+        <div class="date">April 06, 2021</div>
+        <p class="synopsis">
+           I had carefully planned my Saturday, but not a single task was accomplished. In those empty days, I began to wonder: What kind of life do I actually want to live? This question has haunted me for years, yet every time I think I’ve found an answer, it slips away like water through my fingers. I realized that reflecting, just like healing, is not a single revelation but an unending process. Each time I shed an old version of myself, my idea of “meaning” shifts with it.
+        </p>
+        <a href="essays/want.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="v">
+        <h3>i finally found peace</h3>
+        <div class="date">March 16, 2021</div>
+        <p class="synopsis">
+           The day I used to wish for has finally arrived. It’s today. I’ve reached a point in life where tomorrow doesn’t frighten me anymore, and every day feels like Sunday. I’m on the last pages of my eighteenth year, and as I write this, I want to capture how peaceful, obscure, and serene life has become. It feels far removed from the chaotic days when my family’s life was a blur of noise and exhaustion, when taking a nap was a sin. I do not know how long this quiet chapter will last, but I write this with gratitude that it exists at all.
+        </p>
+        <a href="essays/peace.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="p">
+        <h3>where does god live</h3>
+        <div class="date">October 5, 2021</div>
+        <p class="synopsis">
+           Most religious traditions teach that the kingdom of God exists above us, yet the deeper truth may be that the kingdom of God resides within each of us. This externalized belief often leads people to postpone their happiness, treating heaven as the ultimate reward while viewing this life as a series of trials to endure.
+        </p>
+        <a href="essays/godb.html">Read More</a>
+    </div>
+
+
+
+    <div class="card topic" data-category="p">
+        <h3>on making life bearable</h3>
+        <div class="date">February 15, 2021</div>
+        <p class="synopsis">
+           zoom out from the earth. Whenever I am consumed by worry, anxiety, or self-recrimination, I imagine taking a step back from my physical body, drifting upward, above the city, the country, the continent, until I see the planet in its entirety, a small blue orb, flecked with green, suspended in darkness.
+        </p>
+        <a href="essays/bearable.html">Read More</a>
+    </div>
+
+
+
+   <div class="card topic" data-category="v">
+        <h3>quitting social media</h3>
+        <div class="date">January 16, 2021</div>
+        <p class="synopsis">
+         My digital persona, no matter how genuine it tries to be, will never capture the full complexity of who I am. And yet, people often assume they know me based solely on this curated online version.
+        </p>
+        <a href="essays/socmed.html">Read More</a>
+    </div>
+
+
+    <div class="card topic" data-category="p">
+        <h3>the law of attraction is problematic</h3>
+        <div class="date">January 9, 2021</div>
+        <p class="synopsis">
+          When I was sixteen, I discovered the Law of Attraction, and I found it incredibly appealing. The idea that one could shape reality through thoughts and feelings felt almost magical. I was drawn to the promise that consistent positive thinking would attract only positive experiences. 
+        </p>
+        <a href="essays/tloa.html">Read More</a>
+    </div>
+
+
+
+</div>
+</div>
+
+
+<script>
+    function filterMovies() {
+        const movies = document.querySelectorAll('.topic');
+        const categoryLinks = document.querySelectorAll('.nav.category-nav a');
+        const selectedCategory =
+            Array.from(categoryLinks)
+                .find(link => link.classList.contains('active'))
+                ?.getAttribute('onclick')
+                .match(/'([^']+)'/)[1] || 'all';
+
+        movies.forEach(movie => {
+            const matchesCategory =
+                (selectedCategory === 'all' || movie.dataset.category === selectedCategory);
+
+            movie.style.display = matchesCategory ? 'block' : 'none';
+        });
+    }
+
+    function filterByCategory(category, element) {
+        const categoryLinks = document.querySelectorAll('.nav.category-nav a');
+
+        categoryLinks.forEach(link => link.classList.remove('active'));
+        element.classList.add('active');
+
+        filterMovies();
+    }
+
+    function showReview(movie) {
+        movie.querySelector('.review').style.display = 'block';
+    }
+
+    function hideReview(movie) {
+        movie.querySelector('.review').style.display = 'none';
+    }
+</script>
+</body>
+
+</html>

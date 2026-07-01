@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>bookshelf</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+        .da-container {
+        width: min(98vw, 100%);
+          height: auto;
+          margin: 0 auto;
+          text-align: justify;
+          background: none;
+          overflow: visible;
+          font-size: 20px;
+          color: #a1a3b2;
+          line-height:  1.5;
+        }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 6;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        background: #171927;
+        border: 0.05em solid #aab4ff;
+        border-image: url("https://inquis.neocities.org/asset/lace.png") 72 round;
+        border-radius: 5px;
+        background-clip: padding-box;
+
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+      .card a {
+          transition: color 0.2s ease, text-shadow 0.2s ease;
+      }
+
+      .card:hover a {
+          text-decoration: underline;
+          color: #aab4ff;
+          text-shadow: 0 0 6px #aab4ff;
+      }
+
+      .card:hover h3 {
+          color: #aab4ff;
+          text-shadow: 0 0 2px #aab4ff;
+      }
+
+      @media (max-width: 1024px) {
+          .grid {
+              column-count: 3;
+          }
+      }
+
+      @media (max-width: 700px) {
+          .grid {
+              column-count: 2;
+          }
+      }
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+          .ascii-link {
+            color: inherit;          
+            text-decoration: none;  
+            transition: color 0.2s ease;
+          }
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+      .da-container img {
+        width: 20vw;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+
+      }
+
+
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.img-frame,
+.about-text {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.img-frame {
+    flex: 0 0 400px;
+    padding-top: 25px;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 2;
+    font-size: 1.25em;
+    line-height: 1.5;
+    padding: 10px;
+    padding-top: 0;
+}
+
+
+
+@media (max-width: 1200px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .img-frame {
+        width: 100%;
+        flex: none;
+
+    }
+
+}
+</style> 
+</head>
+<body>
+
+<div class="da-container">
+<div style="text-align: center; display: block; width: 100%; zoom: 1.2; margin-top: 17px; line-height: 1.5; ">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+  <br>
+
+
+  <h1 style="font-size: 4.5em; line-height: 1; text-align: left; margin-bottom: -10px; font-weight: 500;">The Bookshelf</h1> <h2 style="font-weight: 200; margin-bottom: 60px; font-size: 1em; line-height: 1.1; padding-right: 50vw; text-align: left;"><span style="color: #aab4ff;"> Disclaimer:</span> Don't mistake me for a fan of these books simply because I've read them. Some are the work of thinkers, others of charlatans, and a few by memoirists. I make it a rule never to judge a book unread. I'm as much an educated hater as I am an academic simp.</h2>
+  <div class="grid">
+
+<div class="card"><img src="asset/books/b1.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b2.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b3.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b4.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b5.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b6.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b7.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b8.png" loading="lazy" style="width: 100%;">
+    
+</div>
+
+
+<div class="card"><img src="asset/books/b12.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b13.png" loading="lazy" style="width: 100%;">
+    
+</div>
+
+<div class="card"><img src="asset/books/b9.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b10.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b11.png" loading="lazy" style="width: 100%;">
+    
+</div>
+
+<div class="card"><img src="asset/books/b14.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b15.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b16.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b17.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b18.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b19.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b20.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b21.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b22.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b23.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b24.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b25.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b26.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b27.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b28.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b29.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b30.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b31.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b32.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b33.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b34.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b35.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b36.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b37.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b38.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b39.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b40.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b41.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b42.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b43.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b44.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b45.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b46.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b47.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b48.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b49.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b50.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b51.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b52.png" loading="lazy" style="width: 100%;">
+    
+</div>
+<div class="card"><img src="asset/books/b53.png" loading="lazy" style="width: 100%;">
+    
+</div>
+
+
+</div>
+</div>
+</body>
+
+</html>

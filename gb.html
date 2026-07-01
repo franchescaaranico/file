@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">    
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<title>guestbook</title><link rel="icon" href="icons/flower.png">
+
+<style>
+
+          body {
+            font-family: "Crimson Pro", serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #12131b;
+          }
+
+        .da-container {
+        width: min(70vw, 100%);
+          height: auto;
+          margin: 0 auto;
+          text-align: justify;
+          background: none;
+          overflow: visible;
+          font-size: 20px;
+          color: #a1a3b2;
+          line-height:  1.5;
+        }
+
+        .da-container a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .da-container a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+
+    .grid {
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+
+    .synopsis {
+    line-height: 1.2;
+    }
+
+    .date {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    opacity: .4;
+    }
+
+    h3 {
+        font-size: 2.2em;
+        text-align: left;
+        line-height: 1;
+        font-weight: 500;
+        margin-top: -5px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        background: #171927;
+        border: 0.05em solid #aab4ff;
+        border-image: url("https://inquis.neocities.org/asset/lace.png") 72 round;
+        border-radius: 5px;
+        background-clip: padding-box;
+
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+      .card a {
+          transition: color 0.2s ease, text-shadow 0.2s ease;
+      }
+
+      .card:hover a {
+          text-decoration: underline;
+          color: #aab4ff;
+          text-shadow: 0 0 6px #aab4ff;
+      }
+
+      .card:hover h3 {
+          color: #aab4ff;
+          text-shadow: 0 0 2px #aab4ff;
+      }
+
+      @media (max-width: 1024px) {
+          .grid {
+              column-count: 2;
+          }
+      }
+
+      @media (max-width: 700px) {
+          .grid {
+              column-count: 1;
+          }
+      }
+
+
+
+          body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            filter: url(#noiseFilter);
+            opacity: .2;
+            background:   #000;
+            pointer-events: none;
+          }
+
+
+          body::selection {
+            background: #000;
+            color: #aab4ff;
+          }
+
+
+
+          ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          }
+
+          ::-webkit-scrollbar-track {
+          background: #000;
+          }
+
+          ::-webkit-scrollbar-thumb {
+          background: #12131b;
+          border-radius: 0px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+          background: #12131b;
+          }
+
+          .ascii-link {
+            color: inherit;          
+            text-decoration: none;  
+            transition: color 0.2s ease;
+          }
+
+
+          #popupGif{ display:none; position:absolute; position: absolute; left: .3vw; top: .88vh; width: 17.2vw;z-index:9999; }
+
+      .da-container img {
+        width: 25vw;
+        height: auto;
+        object-fit: cover;
+        flex-shrink: 0;
+        filter:
+          grayscale(85%)
+          sepia(18%)
+          hue-rotate(205deg)
+          saturate(65%)
+          brightness(0.58)
+          contrast(1.18);
+        mix-blend-mode: luminosity;
+        transition: filter 0.2s ease;
+      }
+            .da-container .img-wrap:hover img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+
+
+.about-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.img-frame,
+.about-text {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.img-frame {
+    flex: 0 0 400px;
+    padding-top: 25px;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 2;
+    font-size: 1.25em;
+    line-height: 1.5;
+    padding: 10px;
+    padding-top: 0;
+}
+
+
+
+@media (max-width: 1200px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .img-frame {
+        width: 100%;
+        flex: none;
+
+    }
+
+}
+</style> 
+</head>
+<body>
+
+<div class="da-container">
+<div style="text-align: center; display: block; width: 100%; margin-top: 17px; zoom: 1.2; line-height: 1.5;">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+
+<p style="text-align:center;">I’d love to remember that you stopped by, so please sign the guestbook. <3</p>
+  <iframe 
+    src="https://unzippedfiles.atabook.org/?page=1" style="  width:100%; zoom:1.2;  height:600px; border: none;">
+  </iframe>
+</div>
+</body>
+
+</html>

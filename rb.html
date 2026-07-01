@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rainbow bridge</title><link rel="icon" href="icons/flower.png">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<style>
+
+
+body {
+ font-family: "Crimson Pro", serif;
+  margin: 0;
+  color: #141f47;
+  padding: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 0;
+  background-image: url("images/bg/clouds.gif");
+  background-size: 600px auto; 
+  background-repeat: repeat;     
+  background-position: top left; 
+}
+
+ * {
+    cursor: url(https://cur.cursors-4u.net/user/use-1/use72.cur), auto !important;
+  }
+
+
+    .container {
+        zoom: ;
+        max-width: 500px;
+        margin: auto;
+        padding: 50px;
+
+  overflow: hidden;
+  position: relative;
+    }
+
+
+
+    .rainbow-img {
+        width: 100%;
+       margin-bottom: -130px;
+        height: auto;
+        display: block;
+    }
+
+ .pets {
+    position: relative;
+    height: 1200px;
+    margin-top: 30px;
+}
+
+.pet {
+    position: absolute;
+    width: 250px;
+    height: auto;
+    transition: transform 0.2s ease;
+    animation: float 3s ease-in-out infinite;
+
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4))
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))
+            drop-shadow(0 0 15px rgba(255, 200, 255, 0.2));
+}
+
+
+.pet:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+            drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
+            drop-shadow(0 0 20px rgba(255, 200, 255, 0.3));
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+    100% { transform: translateY(0); }
+}
+
+
+.p1 { top: 30px; left: 10px; animation-duration: 3s; animation-delay: 0s; }
+.p2 { top: 300px; right: 0; animation-duration: 4s; animation-delay: 0.5s; }
+.p3 { top: 550px; left: 20px; animation-duration: 3.5s; animation-delay: 1s; }
+.p4 { top: 750px; right: 10px; animation-duration: 4.2s; animation-delay: 0.2s; }
+.p5 { top: 1000px; left: 0px; animation-duration: 3.8s; animation-delay: 0.7s; }
+
+
+  .exit-button {
+  position: fixed;
+  top: 0;
+  left:0 ;
+  width: 5vw;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.exit-button:hover {
+    transform: scale(1.05);
+}
+
+
+    @media (min-width: 700px) {
+        body {
+            zoom: 1.5;
+        }
+    }
+</style>
+</head>
+<body>
+        <a href="index.html">
+    <img src="images/video%20thumbnails/exit.png" class="exit-button" alt="Exit Button">
+  </a>
+
+<div class="container">
+
+  
+    <img src="images/pets/rb.png" alt="rainbow bridge" class="rainbow-img">
+
+ 
+    <p style="font-size: .95em; margin-top: -50px; text-align: center;">
+
+This place is called the Rainbow Bridge. It’s where I remember my pets who have passed on. According to folklore, the Rainbow Bridge is a peaceful spot in heaven where beloved animals wait comfortably until they can be reunited with the humans who loved them.<br><br>
+
+I like to imagine that their bowls are always full, their water is fresh, and there’s a big open field where they can run and play together. Whatever pain or sickness they had in life is gone, and they’re healthy and full of energy again.<br><br>
+
+I believe they’re happy there, even if they might be missing a certain human. This page is dedicated to my best friends. I love them, and I miss them very much.
+    </p>
+
+ 
+    <div class="pets">
+        <img src="images/pets/1.gif" class="pet p1">
+        <img src="images/pets/2.gif" class="pet p2">
+        <img src="images/pets/4.gif" class="pet p3">
+        <img src="images/pets/3.gif" class="pet p4">
+        <img src="images/pets/5.gif" class="pet p5">
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

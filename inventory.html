@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      
+ <title>inventory</title><link rel="icon" href="icons/flower.png">
+
+
+
+<style>
+
+
+
+body {
+  cursor: url('images/index/defaulting.png'), auto;
+}
+
+body.clicking {
+  cursor: url('images/index/reaching.png') !important;
+}
+
+
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #12131b;
+  overflow-x: auto;
+  overflow-y: hidden;  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+        body::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          filter: url(#noiseFilter);
+          opacity: .2;
+          background:   #000;
+          pointer-events: none;
+        }
+
+
+.stage {
+zoom: .9;
+    width: 100%; 
+    max-width: 1900px;
+    height: 900px; 
+margin-top: 50px;
+    position: relative;
+    overflow: visible;
+
+}
+
+
+
+.draggable:hover img { 
+  transform: scale(1.8) rotate(0deg) !important;
+  -webkit-filter: drop-shadow(3px 0 0 black)
+                  drop-shadow(-3px 0 0 white)
+                  drop-shadow(0 4px 0 black)
+                  drop-shadow(0 -3px 0 white);
+}
+
+#img16:hover img{
+  transform: scale(1.8) rotate(90deg) !important;
+
+}
+
+
+#img24:hover img{
+  transform: scale(1)!important;
+}
+
+
+.draggable {
+    position: relative;             
+ 
+    display: inline-block;                                  
+    cursor: url('images/index/reaching.png'), auto; 
+    user-select: none;                                     
+    -webkit-user-drag: none;                            
+}
+
+.draggable:active {
+    cursor: url('images/index/grabbing.png'), auto;
+
+}
+
+
+  .draggable img {
+  display: block;
+  height: auto;
+  transition: transform 0.1s ease; 
+
+}
+
+.draggable:hover {
+  z-index: 999999;
+  filter: none;
+
+}
+
+
+img {
+  display: block;
+  width: 100px;
+  height: auto; 
+  cursor: url('images/index/reaching.png'), auto; 
+}
+
+
+
+
+
+
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s;
+
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100px;
+  max-width: 300px;
+  width: max-content;
+
+  padding: 20px;
+  border: 4px solid #000;
+  background: #fff;
+
+
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 100;
+  color: #000;
+  text-align: center;
+
+  white-space: normal;
+  word-break: break-word;
+
+  z-index: 9999999;
+}
+    .tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+
+body::selection {
+  background: #cccccc;
+  color: black;
+}
+
+
+
+.book {
+  position: absolute;
+  z-index: 1;
+}
+
+.book img {
+  position: absolute;
+  inset: 0;
+  width:330px;
+  transition: opacity 0.01s ease;
+}
+
+.book .default-img { opacity: 1; }
+.book .open { opacity: 0;  width:420px; left:-30px;top:-5px;  }
+
+
+.book:hover .default-img { opacity: 0; }
+.book:hover .open { opacity: 1; width:420px; left:-30px;top:-5px; }
+
+
+.book-a {left:-30px; top:-5px; }
+
+
+#img24 .tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 120px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+
+        .header a {
+        color: #aab4ff;
+        text-decoration: none;
+        font-weight: 200;
+        font-family:  monospace ;
+        font-size: 20px;
+        
+        }
+
+        .header a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #aab4ff;
+        text-shadow: 0 0 6px #aab4ff;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+  </style>
+</head>
+<body>
+
+
+  <svg width="0" height="0">
+    <filter id="noiseFilter">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.8"
+        numOctaves="4"
+        stitchTiles="stitch"
+      />
+    </filter>
+  </svg>
+
+<div class= "header" style="text-align: center; display: block; width: 100%; zoom: 1.2; position: absolute; top: 17px; line-height: 1.5;">
+  <a href="index.html">essays</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+  
+  <a href="about.html">about</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="inventory.html">inventory</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="artwork.html">artworks</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="moodboard.html">moodboard</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="photos.html">photos</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="media.html">media log</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="bookshelf.html">bookshelf</a>
+
+  <br>
+
+  <a href="vhs.html">video room</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="got7.html">got7</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="rb.html">rainbow bridge</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="surreal.html">surreal art</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="gb.html">guestbook</a>
+  <span style="opacity: 0.3;"> &nbsp;|&nbsp; </span>
+
+  <a href="links.html">links</a>
+</div>
+  <br>
+
+
+<div class="stage" id="stage">
+
+
+
+<div id="img24" class="tooltip draggable book book-a">
+
+  <span class="tooltip-text" style="border-radius:20px; border: none; left:30px; font-size: 20px;">
+   shall we go?</span>
+
+  <img class="default-img"src="images/inventory/cuthat.webp">
+
+  <img class="open"src="images/inventory/mehihi.webp">
+
+</div>
+
+
+<a id="img1" class="tooltip draggable" style="left:260px; top:100px;">
+  <img src="images/inventory/bagblack.webp" style="width:320px;">
+  <span class="tooltip-text" style="top:120%; left: 110%;">A Talking Backpack</span>
+</a>
+
+<a id="img2" class="tooltip draggable" style="left:250px; top:550px;">
+  <img src="images/inventory/notebook.webp" style="width:230px; transform: rotate(10deg);">
+  <span class="tooltip-text" style="top:110%; left: 120%;">Death note</span>
+</a>
+
+<a id="img3" class="tooltip draggable" style="left:700px; top:650px;">
+  <img src="images/inventory/pens.webp" style="width:120px; transform: rotate(60deg);">
+  <span class="tooltip-text" style="top:50%;">pink mechanical pencil<br>pink colored pen<br>pink highlighter<br>hideous black multi-pen.<br> (left to right) </span>
+</a>
+
+
+<a id="img5" class="tooltip draggable" style="left:860px; top:110px;">
+  <img src="images/inventory/bottle.webp" style="width:180px;">
+  <span class="tooltip-text" style="left:60%;">
+water
+
+
+</span>
+</a>
+
+<a id="img19" class="tooltip draggable" style="left:1300px; top:60px;">
+  <img src="images/inventory/tablet.webp" style="width:450px; ">
+  <span class="tooltip-text">Chopping Board<br> to write colorful notes I’ll never read.</span>
+</a>
+
+<a id="img6" class="tooltip draggable" style="left:1530px; top:320px;">
+  <img src="images/inventory/calculator.webp" style="width:180px;  transform: rotate(10deg); ">
+  <span class="tooltip-text" >Basic Calculator</span>
+</a>
+
+<a id="img7" class="tooltip draggable" style="left:780px; top:390px;">
+  <img src="images/inventory/chocowrappers.webp" style="width:160px;transform: rotate(120deg);">
+  <span class="tooltip-text">Empty Chocolate Wrappers</span>
+</a>
+
+<a id="img8" class="tooltip draggable" style="left:1730px; top:430px;">
+  <img src="images/inventory/conceal.webp" style="width:50px; transform: rotate(-5deg);">
+  <span class="tooltip-text">Maybelline Concealer<br> to cover up all the nasty<br>things i did just to be loved</span>
+</a>
+<a id="img9" class="tooltip draggable" style="left:1540px; top:600px;">
+  <img src="images/inventory/menthol.webp" style="width:200px; transform: rotate(-90deg);">
+  <span class="tooltip-text" style="top:110%">Menthol oils and eucalyptus balms<br>for my chronic headache</span>
+</a>
+
+<a id="img10" class="tooltip draggable" style="left:840px; top:450px;">
+  <img src="images/inventory/earphone.webp" style="width:250px; transform: rotate(-50deg);">
+  <span class="tooltip-text" style="top:20%;">Escaping Reality Tool</span>
+</a>
+
+<a id="img11" class="tooltip draggable" style="left:580px; top:220px;">
+  <img src="images/inventory/eyecover.webp" style="width:260px;  transform: rotate(-10deg);">
+  <span class="tooltip-text"  style= "left: 130%; top: 100%;">Eye mask<br> so i can sleep anywhere</span>
+</a>
+
+<a id="img12" class="tooltip draggable" style="left:1170px; top:680px;">
+  <img src="images/inventory/facepowder.webp" style="width:180px; transform: rotate(30deg); ">
+  <span class="tooltip-text"  style="top:100%;">Nude face powder</span>
+</a>
+
+<a id="img4" class="tooltip draggable" style="left:1320px; top:680px;">
+  <img src="images/inventory/blushon.webp" style="width:150px;  transform: rotate(-40deg);">
+  <span class="tooltip-text" style="top:100%;">Careline Blush On<br>in the shade: slap me hard</span>
+</a>
+
+<a id="img13" class="tooltip draggable" style="left:540px; top:120px;">
+  <img src="images/inventory/glasses.webp" style="width:260px;">
+  <span class="tooltip-text" style="top:100%; left: 130%;">Eyeglasses</span>
+</a>
+
+<a id="img14" class="tooltip draggable" style="left:480px; top:680px;">
+  <img src="images/inventory/lipbalm.webp" style="width:130px; transform: rotate(-20deg);">
+  <span class="tooltip-text" style="top:80%;">Three Half-empty Peppermint Lip balms</span>
+</a>
+
+<a id="img15" class="tooltip draggable" style="left:1300px; top:340px;">
+  <img src="images/inventory/lipsticks.webp" style="width:200px; transform: rotate(-45deg);">
+  <span class="tooltip-text" style="top: 100%">Expired Maybelline<br>Nude Lipsticks</span>
+</a>
+
+<a id="img16" class="tooltip draggable" style="left:1050px; top:210px;">
+  <img src="images/inventory/mirror.webp" style="width:220px;">
+  <span class="tooltip-text" style="left: 70%; top: 160%;">Phone stand w/ Mirror</span>
+</a>
+
+<a id="img17" class="tooltip draggable" style="left:1080px; top:345px;">
+  <img src="images/inventory/phone.webp" style="width:180px;  transform: rotate(-5deg);">
+  <span class="tooltip-text">A Pocket-sized Internet Portal</span>
+</a>
+
+<a id="img18" class="tooltip draggable" style="left:1130px; top:40px;">
+  <img src="images/inventory/stickynotes.webp" style="width:150px;  transform: rotate(90deg);">
+  <span class="tooltip-text" style="top:100%; left: 90%;">Sticky notes<br> to track things i failed to do</span>
+</a>
+
+
+<a id="img20" class="tooltip draggable" style="left:400px; top:420px;">
+  <img src="images/inventory/wallet.webp" style="width:200px; transform: rotate(90deg);">
+  <span class="tooltip-text" style="top:140%;">A wallet with no muh·nee
+ :((</span>
+</a>
+
+<a id="img21" class="tooltip draggable" style="left:900px; top:720px;">
+  <img src="images/inventory/wipes.webp" style="width:260px; transform: rotate(0deg);">
+  <span class="tooltip-text" style="top:105%;">Wet Wipes</span>
+</a>
+
+<a id="img21" class="tooltip draggable" style="left:570px; top:470px;">
+  <img src="images/inventory/babygirl.webp" style="width:210px;  transform: rotate(-15deg);">
+  <span class="tooltip-text">A photo of jinyoung</span>
+</a>
+
+<a id="img22" class="tooltip draggable" style="left:650px; top:330px;">
+  <img src="images/inventory/perfume.webp" style="width:80px;  transform: rotate(75deg);">
+  <span class="tooltip-text">sweet flowery scent<br>w/ spicy undertones</span>
+</a>
+
+
+
+
+   <div style="  position:   absolute ; top:10px; left:   260px;">
+    <img class="default-img" src="images/inventory/caption.png" style="  width:  700px;">
+  </div>
+
+
+</div>
+
+<script>
+const stage = document.getElementById('stage');
+const scale = 0.9;
+let z = 100;
+
+document.querySelectorAll('.draggable').forEach(el => {
+  let tocino, hatdog, hakdog, rororor, dragging = false, moved = false;
+
+  el.addEventListener('pointerdown', e => {
+    z++;
+    el.style.zIndex = z;
+
+    dragging = true;
+    moved = false;
+
+    tocino = e.clientX;
+    hatdog = e.clientY;
+
+    const s = stage.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+
+    hakdog = (r.left - s.left) / scale;
+    rororor = (r.top - s.top) / scale;
+
+    el.setPointerCapture(e.pointerId);
+  });
+
+  el.addEventListener('pointermove', e => {
+    if (!dragging) return;
+
+    const x = hakdog + (e.clientX - tocino) / scale;
+    const y = rororor + (e.clientY - hatdog) / scale;
+
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+
+    moved = true;
+  });
+
+  el.addEventListener('pointerup', e => {
+    dragging = false;
+    try { el.releasePointerCapture(e.pointerId); } catch {}
+  });
+
+  el.addEventListener('click', e => {
+    if (moved) e.stopImmediatePropagation();
+  });
+
+  el.addEventListener('dragstart', e => e.preventDefault());
+});
+</script>
+
+
+<script>
+  const audio = document.getElementById('bgAudio');
+
+  function startAudio() {audio.play().catch(() => {});cleanup();}
+  function cleanup() {document.removeEventListener('mousedown', startAudio);}
+  document.addEventListener('mousedown', startAudio, { once: true });
+ 
+
+</script>
+
+
+</body>
+</html>

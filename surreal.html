@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>surreal art</title><link rel="icon" href="icons/flower.png">
+
+
+<style>
+ * {
+    cursor: url(https://cur.cursors-4u.net/user/use-1/use72.cur), auto !important;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 2000px;
+  font-family:  monospace ;
+  font-weight: 700;
+  font-size: 2em;
+  background-color: black;
+
+  background-image: url("images/surreal/wallb.png");
+  background-repeat: repeat;
+  background-size: 300px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+  .desk {
+    position: relative;
+    width: 1500px;           
+    height: 2000px;
+    margin: auto;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+
+.photo-frame {
+  position: absolute;
+  width: 20%; 
+  height: auto;
+  animation-name: twitch;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+
+
+.frame1  { animation-delay: 10s; }
+.frame2  { animation-delay: 1.5s; }
+.frame3  { animation-delay: 2s; }
+.frame4  { animation-delay: 2.5s; }
+.frame5  { animation-delay: 2s; }
+.frame6  { animation-delay: 5s; }
+.frame7  { animation-delay: 3s; }
+.frame8  { animation-delay: 6s; }
+.frame9  { animation-delay: 4s; }
+.frame10 { animation-delay: 1.5s; }
+.frame11 { animation-delay: 8s; }
+.frame12 { animation-delay: 5.5s; }
+.frame13 { animation-delay: 6s; }
+.frame14 { animation-delay: 6.5s; }
+.frame15 { animation-delay: 1s; }
+.frame16 { animation-delay: 7.5s; }
+.frame17 { animation-delay: 0s; }
+.frame18 { animation-delay: 8.5s; }
+
+
+@keyframes twitch {
+  0%, 20%, 100% { transform: rotate(0deg) translate(0,0); }       
+  10% { transform: rotate(2deg) translate(2px,-2px); }          
+  15% { transform: rotate(-2deg) translate(-2px,2px); }           
+}
+
+@media screen and (max-width: 600px) {
+  .photo-frame {
+    width: 35%;
+  }
+}
+
+.frame15 { top: 12%;   left: 0%;   width: 450px; transform: rotate(-2deg); }
+.frame2  { top: 24%;   left: 28%;  transform: rotate(1deg); }
+.frame3  { top: 26%;   left: 48%;  transform: rotate(-1deg); }
+.frame8  { top: 12%;   left: 68%;  width: 450px; transform: rotate(2deg); }
+
+.frame5  { top: 35%;   left: 3%;   width: 350px; transform: rotate(3deg); }
+.frame6  { top: 40%;   left: 25%;  transform: rotate(-2deg); }
+.frame7  { top: 43%;   left: 45%;  width: 330px; transform: rotate(1deg); }
+.frame4  { top: 74%;   left: 64%;  transform: rotate(-1deg); }
+.frame9  { top: 57%;   left: 85%;  transform: rotate(2deg); }
+
+.frame10 { top: 36%;   left: 72%;  width: 380px; transform: rotate(-1deg); }
+.frame11 { top: 52%;   left: 3%;   transform: rotate(1deg); }
+.frame1  { top: 55.6%; left: 21.5%; transform: rotate(-2deg); }
+.frame13 { top: 60%;   left: 42%;  transform: rotate(2deg); }
+
+.frame12 { top: 70%;   left: 0%;   width: 330px; transform: rotate(1deg); }
+.frame18 { top: 75%;   left: 22%;  transform: rotate(-1deg); }
+.frame16 { top: 78%;   left: 43%;  transform: rotate(2deg); }
+.frame17 { top: 57%;   left: 65%;  transform: rotate(-2deg); }
+.frame14 { top: 73%;   left: 85%;  width: 250px; transform: rotate(1deg); }
+
+
+.chair {
+  position: absolute;  
+  top: 10%;            
+  left: 50%;       
+  transform: translateX(-50%);  
+  width: 550px;        
+}
+
+
+
+.title {
+  position: absolute;
+  top: -3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+}
+
+
+  .exit-button {
+  position: fixed;
+  top: 0;
+  left:0 ;
+  width: 6vw;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.exit-button:hover {
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+      <a href="index.html">
+    <img src="images/video%20thumbnails/exit.png" class="exit-button" alt="Exit Button">
+  </a>
+  <img src="https://i.imgur.com/83h0EVz.png" class="title">
+<div class="desk">
+    
+  
+    <p style="text-align: center; display: block; z-index: 99;"> All of these were made in 2020-2022, when GenAi wasn’t a thing yet.</p>
+    <img src="images/surreal/surreal%20(19).png" loading= "lazy" class="photo-frame frame1">
+    <img src="images/surreal/surreal%20(1).png" loading= "lazy"  class="photo-frame frame2">
+    <img src="images/surreal/surreal%20(2).png" loading= "lazy"  class="photo-frame frame3">
+    <img src="images/surreal/surreal%20(13).png" loading= "lazy"  class="photo-frame frame4">
+    <img src="images/surreal/surreal%20(3).png" loading= "lazy"  class="photo-frame frame5">
+    <img src="images/surreal/surreal%20(4).png" loading= "lazy"  class="photo-frame frame6">
+    <img src="images/surreal/surreal%20(6).png" loading= "lazy"  class="photo-frame frame7">
+    <img src="images/surreal/surreal%20(5).png" loading= "lazy"  class="photo-frame frame8">
+    <img src="images/surreal/surreal%20(10).png" loading= "lazy"  class="photo-frame frame9">
+    <img src="images/surreal/surreal%20(15).png" loading= "lazy"  class="photo-frame frame10">
+    <img src="images/surreal/surreal%20(16).png" loading= "lazy"  class="photo-frame frame11">
+    <img src="images/surreal/surreal%20(17).png" loading= "lazy"  class="photo-frame frame12">
+    <img src="images/surreal/surreal%20(7).png" loading= "lazy"  class="photo-frame frame13">
+    <img src="images/surreal/surreal%20(8).png" loading= "lazy"  class="photo-frame frame14">
+    <img src="images/surreal/surreal.png" loading= "lazy"  class="photo-frame frame15">
+    <img src="images/surreal/surreal%20(20).png" loading= "lazy"  class="photo-frame frame16">
+    <img src="images/surreal/surreal%20(14).png" loading= "lazy"  class="photo-frame frame17">
+    <img src=" images/surreal/surreal%20(9).png" loading= "lazy"  class="photo-frame frame18">
+     <img src="images/surreal/surreal%20(12).png" loading= "lazy"  class= "chair" style="z-index: 8;">
+
+
+
+
+  </div>
+  </div>
+  
+  
+  
+
+</body>
+</html>
